@@ -1,15 +1,16 @@
 import { defineConfig } from "cypress";
+import * as fs from "fs-extra";
 
 export default defineConfig({
   pageLoadTimeout: 10000,
-
   screenshotOnRunFailure: true,
-  screenshotsFolder: "cypress/screenshots",
+  screenshotsFolder: "cypress/reports/screenshots",
   video: false,
   videosFolder: "cypress/videos",
   reporter: "mochawesome",
   reporterOptions: {
-    reportDir: "cypress/reports",
+    reportDir: "cypress/reports/mocha",
+    reportFilename: "mocha-result",
     charts: true,
     reportPageTitle: "Juye-report",
     embeddedScreenshots: true,
@@ -24,8 +25,14 @@ export default defineConfig({
     baseURL: "https://opensource-demo.orangehrmlive.com/",
   },
   e2e: {
-    setupNodeEvents(on, config) {
-      // implement node event listeners here
-    },
+    setupNodeEvents,
   },
 });
+
+async function setupNodeEvents(on, config) {
+  await on("before:run", () => {
+    fs.emptyDirSync("./cypress/reports");
+    fs.emptyDirSync("./cypress/downloads");
+  });
+  //This will clear all contents in "./cypress/reports" && "./cypress/reports" before the test run.
+}
