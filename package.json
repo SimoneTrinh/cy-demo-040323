@@ -7,6 +7,7 @@
     "mocha-show": "cmd /c start cypress/reports/mocha-reports/report.html",
     "mocha-merge-export": "yarn mocha-merge && yarn mocha-export",
     "mocha-merge-export-show": "yarn mocha-merge && yarn mocha-export && yarn mocha-show",
+    "test-mocha-merge-export-show": "yarn cy-run ; yarn mocha-merge ; yarn mocha-export ; yarn mocha-show",
     "mocha-open": "cmd /c start cypress/reports/mocha/mocha-result.html"
   },
   "dependencies": {

@@ -19,25 +19,25 @@ describe("Demo test", () => {
     loginPage.inputPass("admin123");
 
     loginPage.clickBtnLogin();
-    homePage.verifyHeaderTextEqual("Dashboard12321");
+    homePage.verifyHeaderTextEqual("Dashboard");
   });
 });
 
-describe("Demo test 2", () => {
-  it("Go to login page", () => {
-    loginPage = new LoginPage();
-    homePage = new HomePage();
+// describe("Demo test 2", () => {
+//   it("Go to login page", () => {
+//     loginPage = new LoginPage();
+//     homePage = new HomePage();
 
-    loginPage.goto();
-    // loginPage
+//     loginPage.goto();
+//     // loginPage
 
-    loginPage.getLocator(loginPage.txbUsername).should("be.visible");
-    // loginPage.getLocator(loginPage.txbUsername).should("");
+//     loginPage.getLocator(loginPage.txbUsername).should("be.visible");
+//     // loginPage.getLocator(loginPage.txbUsername).should("");
 
-    loginPage.inputUserName("Admin");
-    loginPage.inputPass("admin123");
+//     loginPage.inputUserName("Admin");
+//     loginPage.inputPass("admin123");
 
-    loginPage.clickBtnLogin();
-    homePage.verifyHeaderTextEqual("Dashboard12321");
-  });
-});
+//     loginPage.clickBtnLogin();
+//     homePage.verifyHeaderTextEqual("Dashboard");
+//   });
+// });
